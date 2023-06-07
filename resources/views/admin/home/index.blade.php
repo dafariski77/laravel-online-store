@@ -5,7 +5,6 @@
         <div class="card-header">
             Admin Panel - Home Page
         </div>
-        <p>{{ $viewData['name'] }}</p>
         <div class="card-body">
             Welcome to the Admin Panel, use the sidebar to navigate between the different
             options

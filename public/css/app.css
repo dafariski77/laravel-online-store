@@ -1,5 +1,6 @@
 body {
     background-color: #f6f8fd !important;
+    overflow-x: hidden;
 }
 
 .bg-white {
@@ -67,7 +68,7 @@ a {
 
 .product-img {
     object-fit: contain;
-    height: 180px;
+    height: 150px;
     width: 100%;
 }
 

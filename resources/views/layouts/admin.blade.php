@@ -27,36 +27,34 @@
             <ul class="nav flex-column">
                 <li>
                     <a href="{{ route('admin.home.index') }}" class="nav-link text-white">
-                        - Admin - Home
+                        <i class="bi bi-house-door me-1"></i> Home
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.product.index') }}"
                         class="nav-link text-white">
-                        - Admin - Products
+                        <i class="bi bi-shop-window me-1"></i> Products
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.category.index') }}"
                         class="nav-link text-white">
-                        - Admin - Category
+                        <i class="bi bi-tags me-1"></i> Category
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('home.index') }}"
                         class="mt-2 btn bg-primary text-white">
-                        Go back to the home page
+                        <i class="bi bi-arrow-left"></i> Back to home page
                     </a>
                 </li>
             </ul>
         </div>
         <div class="col content-grey">
             <nav class="p-3 shadow text-end">
-                <span class="profile-font">
-                    Admin
-                </span>
-                <img src="{{ asset('/img/undraw_profile.svg') }}"
-                    class="img-profile rounded-circle">
+                <a class="me-4 text-dark">
+                    {{ $viewData['name'] }}
+                </a>
             </nav>
             <div class="g-0 m-5">
                 @yield('content')

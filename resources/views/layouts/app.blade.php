@@ -51,8 +51,8 @@
                     </li>
                 </ul>
                 <ul class="ms-auto navbar-nav">
-                    <li class="nav-item icon-asset text-center me-4">
-                        <a href="" class="nav-link bi bi-cart"></a>
+                    <li class="nav-item icon-asset text-center me-3">
+                        <a href="/cart" class="nav-link bi bi-cart active"></a>
                     </li>
                     @guest
                         <li class="nav-item bg-outline-primary rounded-4 px-3 me-lg-3">
@@ -63,12 +63,23 @@
                                 class="nav-link text-white">Register</a>
                         </li>
                     @else
-                        <a href="{{ route('myaccount.orders') }}" class="nav-link active">My
-                            Orders</a>
+                        <li class="nav-item icon-asset text-center me-3">
+                            <a href="{{ route('myaccount.orders') }}"
+                                class="nav-link bi bi-receipt active"></a>
+                        </li>
                         <form action="{{ route('logout') }}" method="POST" id="logout">
-                            <li class="nav-item">
-                                <a class="nav-link active" role="button"
-                                    onclick="document.getElementById('logout').submit();">Logout</a>
+                            <li class="nav-item icon-asset text-center dropdown">
+                                <a class="nav-link active bi bi-person" role="button"
+                                    type="button" data-bs-toggle="dropdown"
+                                    data-bs-display="static" aria-expanded="false"
+                                    {{-- onclick="document.getElementById('logout').submit();" --}}></a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="/admin">Dashboard</a>
+                                    </li>
+                                    <li><a class="dropdown-item"
+                                            onclick="document.getElementById('logout').submit();">Logout</a>
+                                    </li>
+                                </ul>
                             </li>
                             @csrf
                         </form>
@@ -81,50 +92,6 @@
     <div>
         @yield('content')
     </div>
-
-    {{-- Footer --}}
-    <footer class="mt-5">
-        <div class="footer-top">
-            <div class="container">
-                <div class="row gy-4">
-                    <div class="col-lg-4">
-                        <h5 class="text-white">Navigation</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="article.html">My Article</a></li>
-                            <li><a href="profile.html">Profile</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-4">
-                        <h5 class="text-white">More</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="#">Privacy & Policy</a></li>
-                            <li><a href="#">Help Center</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-4">
-                        <h5 class="text-white">Contact</h5>
-                        <ul class="list-unstyled text-footer">
-                            <li>Address: JL. Prof. Sudarto, Tembalang, Semarang</li>
-                            <li>Email: dafariski555@gmail.com</li>
-                            <li>Phone: 088776454332</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom py-3">
-            <div class="container">
-                <div class="row">
-                    <center>
-                        <p class="mb-0 text-white">Dibuat oleh @dafariski | 2022</p>
-                    </center>
-                </div>
-            </div>
-        </div>
-    </footer>
-    {{-- END FOOTER --}}
 
     <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"

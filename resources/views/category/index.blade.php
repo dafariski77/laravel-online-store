@@ -4,9 +4,9 @@
 @section('content')
     <div class="container mt-5">
         <h2 class="fw-bold text-center">Explore by Category</h2>
-        <div class="row mt-5 g-2 justify-content-center">
+        <div class="row mt-5 g-3 justify-content-center">
             @foreach ($viewData['categories'] as $category)
-                <div class="col-lg-3 category p-3 rounded-3 me-3">
+                <div class="col-lg-3 category p-3 rounded-3 me-3 shadow-sm">
                     <div class="feature d-flex align-items-center">
                         <div class="me-3">
                             <img alt="Web Studio"

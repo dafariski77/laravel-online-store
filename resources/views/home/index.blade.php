@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('title', $viewData['title'])
 @section('content')
-    <div class="container col-xxl-12 px-4 pb-5 ">
+    <div class="container col-xxl-12 px-4 pb-5">
         <section id="hero">
-            <div class="row flex-lg-row-reverse align-items-center g-5 py-lg-5">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-lg-1">
                 <div class="col-10 col-sm-8 col-lg-6" data-aos="fade-left" data-aos-offset="300"
                     data-aos-easing="ease-in-sine">
                     <img src="{{ asset('/img/hero.png') }}" class="d-block mx-lg-auto img-fluid"
@@ -36,7 +36,7 @@
             <h2 class="fw-bold">We have some Categories for you</h2>
             <div class="row mt-3 g-3 justify-content-center">
                 @foreach ($viewData['categories'] as $category)
-                    <div class="col-lg-3 category p-3 rounded-3 me-lg-3">
+                    <div class="col-lg-3 category p-3 rounded-3 me-lg-3 shadow-sm">
                         <div class="feature d-flex align-items-center">
                             <div class="me-3">
                                 <img alt="{{ $category->getName() }}"
@@ -64,14 +64,15 @@
                 <h2 class="fw-bold">Trends Product</h2>
                 <div class="row g-4 mt-2">
                     @foreach ($viewData['products'] as $product)
-                        <div class="col-md-3 col-sm-6">
-                            <div class="product product-block p-3 rounded-3">
+                        <div class="col-lg-2 shadow-sm rounded-3 bg-white" data-aos="zoom-out"
+                            data-aos-duration="500">
+                            <div class="box-part">
                                 <img src="{{ asset('/storage/' . $product->getImage()) }}"
-                                    class="rounded-3 product-img">
-                                <h3 class="product-title mt-5 mb-1 text-primary">
-                                    {{ $product->getName() }}
-                                </h3>
-                                <p class="product-text">${{ $product->getPrice() }}</p>
+                                    class="product-img" />
+                                <div class="title mt-4 ms-3">
+                                    <h5 class="text-primary">{{ $product->getName() }}</h5>
+                                    <h6 class=" fw-bold">${{ $product->getPrice() }}</h6>
+                                </div>
                             </div>
                         </div>
                     @endforeach
@@ -83,5 +84,48 @@
                 </div>
         </section>
     </div>
+    {{-- Footer --}}
+    <footer class="mt-5">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-lg-4">
+                        <h5 class="text-white">Navigation</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="article.html">My Article</a></li>
+                            <li><a href="profile.html">Profile</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <h5 class="text-white">More</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Privacy & Policy</a></li>
+                            <li><a href="#">Help Center</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <h5 class="text-white">Contact</h5>
+                        <ul class="list-unstyled text-footer">
+                            <li>Address: JL. Prof. Sudarto, Tembalang, Semarang</li>
+                            <li>Email: dafariski555@gmail.com</li>
+                            <li>Phone: 088776454332</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom py-3">
+            <div class="container">
+                <div class="row">
+                    <center>
+                        <p class="mb-0 text-white">Dibuat oleh @dafariski | 2022</p>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </footer>
+    {{-- END FOOTER --}}
 
 @endsection

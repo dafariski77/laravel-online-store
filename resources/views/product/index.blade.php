@@ -6,15 +6,15 @@
         <h2 class="fw-bold text-center">Our Products</h2>
         <div class="row g-4 mt-5">
             @foreach ($viewData['products'] as $product)
-                <div class="col-md-3 col-sm-6">
-                    <div class="product product-block p-3 rounded-3">
+                <div class="col-lg-2 shadow-sm rounded-3 bg-white" data-aos="zoom-out"
+                    data-aos-duration="500">
+                    <div class="box-part">
                         <img src="{{ asset('/storage/' . $product->getImage()) }}"
-                            class="rounded-3 product-img">
-                        <h3 class="product-title mt-5 mb-1 text-primary">
-                            <a
-                                href="{{ route('product.show', $product->getId()) }}" class="text-primary">{{ $product->getName() }}</a>
-                        </h3>
-                        <p class="product-text">${{ $product->getPrice() }}</p>
+                            class="product-img" />
+                        <div class="title mt-4 ms-3">
+                            <h5 class="text-primary">{{ $product->getName() }}</h5>
+                            <h6 class=" fw-bold">${{ $product->getPrice() }}</h6>
+                        </div>
                     </div>
                 </div>
             @endforeach
