@@ -1,7 +1,9 @@
 @extends('layouts.admin')
 @section('title', $viewData['title'])
 @section('content')
-    <div class="card mb-4">
+    <p class="m-0">Admin / Categories / {{ $viewData['category']->getId() }}</p>
+    <h3>Edit Products</h3>
+    <div class="card my-4">
         <div class="card-header">
             Edit Category
         </div>
@@ -18,33 +20,20 @@
                 enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
-                <div class="row">
-                    <div class="col">
-                        <div class="mb-3 row">
-                            <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Name
-                                :</label>
-                            <div class="col-lg-10 col-md-6 col-sm-12">
-                                <input type="text" name="name"
-                                    value="{{ $viewData['category']->getName() }}"
-                                    type="text" class="form-control">
-                            </div>
-                        </div>
-                    </div>
+                <label class="form-label">Name
+                    :</label>
+                <input type="text" name="name"
+                    value="{{ $viewData['category']->getName() }}" type="text"
+                    class="form-control">
+
+                <label class="form-label mt-3">Image
+                    :</label>
+                <input type="file" class="form-control" name="image">
+
+                <div class="col">
+                    &nbsp;
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="mb-3 row">
-                            <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Image
-                                :</label>
-                            <div class="col-lg-10 col-md-6 col-sm-12">
-                                <input type="file" class="form-control" name="image">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        &nbsp;
-                    </div>
-                </div>
+                <a type="button" class="btn btn-secondary" href="/admin/category">Cancel</a>
                 <button type="submit" class="btn btn-primary">Edit</button>
             </form>
         </div>

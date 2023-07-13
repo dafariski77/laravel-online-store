@@ -4,7 +4,7 @@
 @section('content')
     <div class="container mt-5">
         <h2 class="fw-bold text-center">Let's Checkout</h2>
-        <div class="mt-120">
+        <div class="mt-5">
             <div
                 class="d-flex flex-row justify-content-between col-lg-8 align-items-center mb-2">
                 <h5 class="fw-bold">
@@ -16,34 +16,38 @@
             </div>
             <div class="row g-2">
                 <div class="col-lg-8">
-                    <div class="d-flex bg-white p-3 rounded-3">
-                        @if (count($viewData['products']) > 0)
-                            @foreach ($viewData['products'] as $product)
-                                <img src="{{ asset('/storage/' . $product->getImage()) }}"
-                                    alt="product-cart" class="rounded me-3" height="80">
-                                <div class="col">
-                                    <p class="fs-5 m-0">{{ $product->getName() }}</p>
-                                    <p class="fw-bold m-0">${{ $product->getPrice() }}</p>
-                                    <p class="m-0 text-primary" style="font-size: 14px">
-                                        Quantity :
-                                        {{ session('products')[$product->getId()] }}
-                                    </p>
-                                    @php
-                                        $count = session('products')[$product->getId()];
-                                    @endphp
+                    @if (count($viewData['products']) > 0)
+                        @foreach ($viewData['products'] as $product)
+                            <div class="col-lg-12 mb-3">
+                                <div class="d-flex bg-white p-3 rounded-3">
+                                    <img src="{{ asset('/storage/' . $product->getImage()) }}"
+                                        alt="product-cart" class="rounded me-3" width="80"
+                                        height="80" style="object-fit: contain" />
+                                    <div class="col">
+                                        <p class="fs-5 m-0">{{ $product->getName() }}</p>
+                                        <p class="fw-bold m-0">${{ $product->getPrice() }}
+                                        </p>
+                                        <p class="m-0 text-primary" style="font-size: 14px">
+                                            Quantity :
+                                            {{ session('products')[$product->getId()] }}
+                                        </p>
+                                        @php
+                                            $count = session('products')[$product->getId()];
+                                        @endphp
+                                    </div>
+                                    <div class="d-flex align-items-center me-lg-4">
+                                        <a href="" class="fs-5 text-danger">
+                                            <i class="bi bi-trash3"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="d-flex align-items-center me-lg-4">
-                                    <a href="" class="fs-5 text-danger">
-                                        <i class="bi bi-trash3"></i>
-                                    </a>
-                                </div>
-                            @endforeach
-                        @else
-                            <div class="d-flex justify-content-center p-3 rounded-3 bg-white">
-                                <h4 class="my-4">Your cart is empty. Let's shop!</h4>
                             </div>
-                        @endif
-                    </div>
+                        @endforeach
+                    @else
+                        <div class="d-flex justify-content-center p-3 rounded-3 bg-white">
+                            <h4 class="my-4">Your cart is empty. Let's shop!</h4>
+                        </div>
+                    @endif
                 </div>
                 <div class="col-lg-4">
                     <div class="d-flex bg-white p-3 rounded-3 flex-column">

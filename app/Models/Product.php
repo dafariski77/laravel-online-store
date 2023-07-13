@@ -113,7 +113,6 @@ class Product extends Model
     {
         $this->items = $items;
     }
-
     public function category()
     {
         return $this->belongsTo(Category::class);

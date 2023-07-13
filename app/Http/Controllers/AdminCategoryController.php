@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class AdminCategoryController extends Controller
@@ -12,7 +13,8 @@ class AdminCategoryController extends Controller
     {
         $viewData = [
             "title" => "Admin Page - Products - Online Store",
-            "categories" => Category::all()
+            "categories" => Category::all(),
+            "name" => Auth::user()->getName()
         ];
 
         return view("admin.category.index")->with("viewData", $viewData);
@@ -32,7 +34,7 @@ class AdminCategoryController extends Controller
         // Product::create($creationData);
 
         if ($req->hasFile('image')) {
-            $imageName = $newCategory->getId() . "." . $req->file('image')->extension();
+            $imageName = mt_rand(10000000, 99999999) . "." . $req->file('image')->extension();
             Storage::disk('public')->put(
                 $imageName,
                 file_get_contents($req->file('image')->getRealPath())
@@ -56,6 +58,7 @@ class AdminCategoryController extends Controller
         $viewData = [
             "title" => "Admin Page - Edit Category - Online Store",
             "category" => Category::findOrFail($id),
+            "name" => Auth::user()->getName()
         ];
 
         return view('admin.category.edit')->with("viewData", $viewData);
@@ -69,7 +72,7 @@ class AdminCategoryController extends Controller
         $category->setName($req->input('name'));
 
         if ($req->hasFile('image')) {
-            $imageName = $category->getId() . "." . $req->file('image')->extension();
+            $imageName = mt_rand(10000000, 99999999) . "." . $req->file('image')->extension();
             Storage::disk('public')->put(
                 $imageName,
                 file_get_contents($req->file('image')->getRealPath())

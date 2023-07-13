@@ -1,3 +1,8 @@
+body {
+    background-color: #f4f7fe !important;
+    overflow-x: hidden;
+}
+
 .copyright {
     background-color: #1a252f;
 }

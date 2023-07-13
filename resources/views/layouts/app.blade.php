@@ -15,7 +15,7 @@
         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
         rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('/css/style.css') }}" />
@@ -24,7 +24,7 @@
 <body>
     <nav class="navbar navbar-expand-lg py-4">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('home.index') }}">Online Store</a>
+            <a class="navbar-brand" href="{{ route('home.index') }}">ClothXstore</a> 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarNav" aria-controls="navbarNav"
                 aria-expanded="false" aria-label="Toggle navigation">

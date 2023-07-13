@@ -1,7 +1,9 @@
 @extends('layouts.admin')
 @section('title', $viewData['title'])
 @section('content')
-    <div class="card mb-4">
+    <p class="m-0">Admin / Products / {{ $viewData['product']->getId() }}</p>
+    <h3>Edit Products</h3>
+    <div class="card my-4">
         <div class="card-header">
             Edit Product
         </div>
@@ -70,7 +72,8 @@
                     <label class="form-label">Description</label>
                     <textarea class="form-control" name="description" rows="3">{{ $viewData['product']->getDescription() }}</textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Edit</button>
+                <a type="button" class="btn btn-secondary" href="/admin/products">Cancel</a>
+                <button type="submit" class="btn btn-primary">Update</button>
             </form>
         </div>
     </div>

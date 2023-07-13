@@ -18,57 +18,52 @@
 
 <body>
     <div class="row g-0">
-        <div class="p-3 col fixed text-white bg-dark">
-            <a href="{{ route('admin.home.index') }}"
-                class="text-white text-decoration-none">
-                <span class="fs-4">Admin Panel</span>
+        <div class="d-flex flex-column flex-shrink-0 p-3 bg-white vh-100 fixed-bottom"
+            style="width: 280px;">
+            <a href="/"
+                class="d-flex align-items-center my-3 link-dark text-decoration-none justify-content-center">
+                <span class="fs-4 fw-semibold">Admin Dashboard</span>
             </a>
             <hr>
-            <ul class="nav flex-column">
-                <li>
-                    <a href="{{ route('admin.home.index') }}" class="nav-link text-white">
+            <ul class="nav nav-pills flex-column mb-auto mt-3">
+                <li class="nav-item">
+                    <a href="{{ route('admin.home.index') }}" class="nav-link active"
+                        aria-current="page">
                         <i class="bi bi-house-door me-1"></i> Home
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.product.index') }}"
-                        class="nav-link text-white">
+                        class="nav-link link-dark">
                         <i class="bi bi-shop-window me-1"></i> Products
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('admin.category.index') }}"
-                        class="nav-link text-white">
+                        class="nav-link link-dark">
                         <i class="bi bi-tags me-1"></i> Category
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('home.index') }}"
-                        class="mt-2 btn bg-primary text-white">
-                        <i class="bi bi-arrow-left"></i> Back to home page
+                    <a href="{{ route('home.index') }}" class="nav-link link-dark">
+                        <i class="bi bi-arrow-left me-1"></i> Back to home page
                     </a>
                 </li>
             </ul>
-        </div>
-        <div class="col content-grey">
-            <nav class="p-3 shadow text-end">
-                <a class="me-4 text-dark">
-                    {{ $viewData['name'] }}
+            <hr>
+            <div class="dropdown">
+                <a href="#"
+                    class="d-flex align-items-center link-dark text-decoration-none">
+                    <img src="https://github.com/mdo.png" alt="" width="32"
+                        height="32" class="rounded-circle me-2">
+                    <strong>{{ $viewData['name'] }}</strong>
                 </a>
-            </nav>
+            </div>
+        </div>
+        <div class="col content-grey" style="margin-left: 285px">
             <div class="g-0 m-5">
                 @yield('content')
             </div>
-        </div>
-    </div>
-
-    <div class="copyright py-4 text-center text-white">
-        <div class="container">
-            <small>
-                Copyright - <a href="https://instagram.com/dafariski77"
-                    class="text-reset fw-bold text-decoration-none" target="_blank">
-                    Dafa Riski</a>
-            </small>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

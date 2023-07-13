@@ -4,7 +4,7 @@
     <div class="container h-80 pt-5">
         <div class="row justify-content-center pt-4">
             <div class="col-md-4">
-                <div class="bg-white shadow-sm rounded-3 p-5">
+                <div class="bg-white rounded-3 p-5">
                     <h3 class="text-center">Register</h3>
                     <div class="mt-5">
                         <form method="POST" action="{{ route('register') }}">

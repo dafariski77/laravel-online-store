@@ -13,7 +13,7 @@ class ProductController extends Controller
         $viewData = [
             "title" => "Products - Online Store",
             "subtitle" => "List of products",
-            "products" => Product::all(),
+            "products" => Product::all()
         ];
         return view("product.index")->with("viewData", $viewData);
     }

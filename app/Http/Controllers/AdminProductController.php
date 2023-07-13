@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class AdminProductController extends Controller
@@ -14,7 +15,8 @@ class AdminProductController extends Controller
         $viewData = [
             "title" => "Admin Page - Products - Online Store",
             "products" => Product::all(),
-            "categories" => Category::all()
+            "categories" => Category::all(),
+            "name" => Auth::user()->getName()
         ];
 
         return view("admin.product.index")->with("viewData", $viewData);
@@ -37,7 +39,7 @@ class AdminProductController extends Controller
         // Product::create($creationData);
 
         if ($req->hasFile('image')) {
-            $imageName = $newProduct->getId() . "." . $req->file('image')->extension();
+            $imageName = mt_rand(10000000, 99999999) . "." . $req->file('image')->extension();
             Storage::disk('public')->put(
                 $imageName,
                 file_get_contents($req->file('image')->getRealPath())
@@ -61,6 +63,7 @@ class AdminProductController extends Controller
         $viewData = [
             "title" => "Admin Page - Edit Product - Online Store",
             "product" => Product::findOrFail($id),
+            "name" => Auth::user()->getName(),
             "categories" => Category::all()
         ];
 
@@ -77,7 +80,7 @@ class AdminProductController extends Controller
         $product->setPrice($req->input('price'));
 
         if ($req->hasFile('image')) {
-            $imageName = $product->getId() . "." . $req->file('image')->extension();
+            $imageName = mt_rand(10000000, 99999999) . "." . $req->file('image')->extension();
             Storage::disk('public')->put(
                 $imageName,
                 file_get_contents($req->file('image')->getRealPath())

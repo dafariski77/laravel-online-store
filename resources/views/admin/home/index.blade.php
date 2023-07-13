@@ -1,7 +1,9 @@
 @extends('layouts.admin')
 @section('title', $viewData['title'])
 @section('content')
-    <div class="card">
+    <p class="m-0">Admin / Main Dashboard</p>
+    <h3>Main Dashboard</h3>
+    <div class="card mt-4">
         <div class="card-header">
             Admin Panel - Home Page
         </div>

@@ -11,8 +11,8 @@ class CategoryController extends Controller
     public function index()
     {
         $viewData = [
-            "title" => "Products - Online Store",
-            "subtitle" => "List of products",
+            "title" => "Category - Online Store",
+            "subtitle" => "List of category",
             "categories" => Category::all(),
         ];
         return view("category.index")->with("viewData", $viewData);
@@ -23,8 +23,8 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
         $products = Product::where('category_id', $id)->get();
         $viewData = [
-            "title" => $category->getName() . " - Online Store",
-            "subtitle" => $category->getName() . " - Product Information",
+            "title" => $category->getName(),
+            "subtitle" => $category->getName(),
             "categories" => $products,
         ];
         return view("category.show")->with("viewData", $viewData);
